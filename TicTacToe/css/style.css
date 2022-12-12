@@ -50,8 +50,7 @@
 }
 
 .whole-board {
-	width: clamp(500px, 80vw, 600px);
-	height: 80vh;
+	width: 500px;
 	padding: 0 var(--BOARD-PADDING);
 }
 
@@ -170,7 +169,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 5em;
+	font-size: 12vh;
 	color: var(--GREEN);
 }
 
@@ -178,7 +177,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 6em;
+	font-size: 12vh;
 	color: var(--RED);
 }
 
