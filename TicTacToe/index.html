@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TicTacToe</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script defer src="js/app.js"></script>
+	</head>
+	<body class="app-background">
+		<main class="whole-board">
+			<header class="header">
+				<section class="whos-turn">
+					<span class="sign">X</span>
+					TURN
+				</section>
+				<section class="reset-points">Reset Points</section>
+				<section class="reset-button">&#x21bb;</section>
+			</header>
+			<article class="board">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</article>
+			<article id="winnerWindow"></article>
+			<footer class="results">
+				<section class="player1">
+					X (PLAYER 1)
+					<span id="player1Points">0</span>
+				</section>
+				<section class="ties">
+					TIES
+					<span id="tiePoints">0</span>
+				</section>
+				<section class="player2">
+					O (PLAYER 2)
+					<span id="player2Points">0</span>
+				</section>
+			</footer>
+		</main>
+	</body>
+</html>
