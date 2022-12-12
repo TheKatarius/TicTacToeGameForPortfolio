@@ -51,8 +51,8 @@
 }
 
 .whole-board {
-	width: clamp(400px, 80vw, 600px);
-	height: 60vh;
+	width: clamp(350px, 80vw, 500px);
+	height: 90vh;
 	padding: 0 var(--BOARD-PADDING);
 }
 
@@ -73,7 +73,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: var(--FIELD-GAP);
+	gap: calc(var(--FIELD-GAP) / 2);
 }
 
 .sign {
@@ -171,7 +171,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 7em;
+	font-size: 5em;
 	color: var(--GREEN);
 }
 
@@ -179,7 +179,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 8em;
+	font-size: 6em;
 	color: var(--RED);
 }
 
