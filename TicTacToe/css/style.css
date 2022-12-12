@@ -14,9 +14,8 @@
 	--FSIZE: 18px;
 
 	/* SIZES */
-	--HEADER-HEIGHT: 10%;
-	--BOARD-HEIGHT: calc(100% - var(--HEADER-HEIGHT) - var(--FOOTER-HEIGHT));
-	--FOOTER-HEIGHT: 15%;
+	--HEADER-HEIGHT: 7vh;
+	--FOOTER-HEIGHT: 10vh;
 	--WIDTH-BLOCK: 30%;
 	--HEIGHT-BLOCK: 60%;
 
@@ -51,8 +50,8 @@
 }
 
 .whole-board {
-	width: clamp(350px, 80vw, 500px);
-	height: 90vh;
+	width: clamp(500px, 80vw, 600px);
+	height: 80vh;
 	padding: 0 var(--BOARD-PADDING);
 }
 
@@ -107,7 +106,7 @@
 
 .board {
 	width: 100%;
-	height: var(--BOARD-HEIGHT);
+	height: 50vh;
 
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
