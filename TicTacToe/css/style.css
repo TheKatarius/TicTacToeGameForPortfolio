@@ -25,6 +25,7 @@
 	--GREEN: rgb(26, 217, 12);
 	--GRAY: rgb(192, 192, 192);
 	--RED: rgb(192, 39, 39);
+	--WHITE: #fff;
 
 	/* MARGINS, PADDINGS AND BORDERS */
 	--MAIN-MARGIN: 2rem;
@@ -47,11 +48,75 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-flow: column nowrap;
+	gap: calc(var(--FIELD-GAP) * 2);
 }
 
+/* CHOOSE YOUR FIGHTER */
+.choose-sign {
+	width: 50%;
+	height: 250px;
+	background-color: var(--LIGHT-MAIN-BGCOLOR);
+	border-radius: var(--FIELD-BORDER-RAD);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column nowrap;
+	gap: calc(var(--FIELD-GAP) / 2);
+}
+
+.choose-sign p {
+	color: var(--GRAY);
+}
+
+.choose-sign-inside {
+	width: 80%;
+	height: 50%;
+	background-color: black;
+	border-radius: var(--FIELD-BORDER-RAD);
+
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.choose-x,
+.choose-o {
+	width: 40%;
+	height: 80%;
+	background-color: var(--GRAY);
+	border-radius: var(--FIELD-BORDER-RAD);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.choose-x p,
+.choose-o p {
+	font-size: calc(var(--FSIZE) * 5);
+	color: var(--MAIN-BGCOLOR);
+}
+
+.new-game {
+	width: 50%;
+	height: var(--FOOTER-HEIGHT);
+	font-size: calc(var(--FSIZE) * 1.5);
+	background-color: var(--RED);
+	border-radius: var(--FIELD-BORDER-RAD);
+	color: var(--WHITE);
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* MAIN GAME */
 .whole-board {
 	width: 500px;
 	padding: 0 var(--BOARD-PADDING);
+	display: none;
 }
 
 .header {
