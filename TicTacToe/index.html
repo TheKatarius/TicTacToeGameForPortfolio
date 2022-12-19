@@ -6,10 +6,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>TicTacToe</title>
 		<link rel="stylesheet" href="css/style.css" />
-		<script defer src="js/app.js"></script>
+		<script type="module" src="js/app.js"></script>
 	</head>
 	<body class="app-background">
-		<section class="choose-sign">
+		<!-- New Game -->
+		<section class="choose-sign" id="chooseSign">
 			<p>Pick Player 1's Mark</p>
 			<div class="choose-sign-inside">
 				<div class="choose-x" id="chooseX">
@@ -23,13 +24,14 @@
 		<section class="new-game" id="newGame">
 			<p>New Game (VS Player)</p>
 		</section>
+
+		<!-- Main Board -->
 		<main class="whole-board" id="wholeBoard">
 			<header class="header">
 				<section class="whos-turn">
 					<span class="sign">X</span>
 					TURN
 				</section>
-				<section class="reset-points">Reset Points</section>
 				<section class="reset-button">&#x21bb;</section>
 			</header>
 			<article class="board">
@@ -43,7 +45,6 @@
 				<div></div>
 				<div></div>
 			</article>
-			<article id="winnerWindow"></article>
 			<footer class="results">
 				<section class="player1">
 					X (PLAYER 1)
@@ -59,5 +60,11 @@
 				</section>
 			</footer>
 		</main>
+		<article id="winnerWindow">
+			<div>
+				<div id="quitButton"></div>
+				<div id="nextRoundButton"></div>
+			</div>
+		</article>
 	</body>
 </html>
