@@ -5,6 +5,20 @@ document.addEventListener("readystatechange", (event) => {
 });
 
 function startGame() {
+	// Toggle between signs
+	const getSignX = document.querySelector("#chooseX");
+	const getSignO = document.querySelector("#chooseO");
+
+	// Get main board after clicking new game
+	const newGame = document.querySelector("#newGame");
+	const wholeBoard = document.querySelector("#wholeBoard");
+	const chooseSignBeginning = document.querySelector(".choose-sign");
+	newGame.addEventListener("click", () => {
+		wholeBoard.style.display = "block";
+		newGame.style.display = "none";
+		chooseSignBeginning.style.display = "none";
+	});
+
 	// If it is a first game on someone's computer - must click reset points to set initial localStorage variables
 	const player1Check = localStorage.getItem("player1"); // null if does not exist
 	const tieCheck = localStorage.getItem("tie");

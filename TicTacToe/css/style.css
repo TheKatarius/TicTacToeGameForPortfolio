@@ -85,7 +85,7 @@
 .choose-o {
 	width: 40%;
 	height: 80%;
-	background-color: var(--GRAY);
+	background-color: var(--WHITE);
 	border-radius: var(--FIELD-BORDER-RAD);
 
 	display: flex;
@@ -97,6 +97,13 @@
 .choose-o p {
 	font-size: calc(var(--FSIZE) * 5);
 	color: var(--MAIN-BGCOLOR);
+}
+
+.choose-o {
+	background-color: var(--MAIN-BGCOLOR);
+}
+.choose-o p {
+	color: var(--WHITE);
 }
 
 .new-game {
