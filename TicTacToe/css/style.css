@@ -247,7 +247,7 @@
 
 .winner-window {
 	width: 100vw;
-	height: 20vh;
+	height: 200px;
 	background-color: var(--WINNER-BGCOLOR);
 	color: var(--GRAY);
 	font-size: 1.5em;

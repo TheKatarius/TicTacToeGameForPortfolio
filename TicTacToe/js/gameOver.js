@@ -54,13 +54,13 @@ export const gameOver = (allFields, sign) => {
 			player2Footer.innerHTML = player2Points;
 			displayWinner("O");
 		}
-	}
-
-	// If tie
-	const tie = allFields.indexOf(0);
-	if (tie === -1) {
-		localStorage.setItem("tie", ++tiePoints);
-		tieFooter.innerHTML = tiePoints;
-		displayWinner();
+	} else {
+		// If tie
+		const tie = allFields.indexOf(0);
+		if (tie === -1) {
+			localStorage.setItem("tie", ++tiePoints);
+			tieFooter.innerHTML = tiePoints;
+			displayWinner();
+		}
 	}
 };
