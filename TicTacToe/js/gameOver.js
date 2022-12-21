@@ -59,7 +59,6 @@ export const gameOver = (allFields, sign) => {
 		if (tie === -1) {
 			localStorage.setItem("tie", ++tiePoints);
 			tieFooter.innerHTML = tiePoints;
-			console.log("gameOver");
 			displayWinner();
 		}
 	}
