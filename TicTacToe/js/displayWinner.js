@@ -18,9 +18,7 @@ export const displayWinner = (sign = 0) => {
 		winnerString.style.color = "rgb(192, 39, 39)";
 	}
 	winnerString.style.fontSize = "3em";
-	console.log(winnerString);
 	winnerWindow.prepend(winnerString);
-	console.log("displayWinner2");
 	// Click Quit Button
 	const quitButton = document.querySelector("#quitButton");
 	quitButton.classList.add("quit-button");
