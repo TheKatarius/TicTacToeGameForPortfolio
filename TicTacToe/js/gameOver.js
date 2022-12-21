@@ -42,7 +42,6 @@ export const gameOver = (allFields, sign) => {
 	) {
 		win = true;
 	}
-
 	// Print Winner!
 	if (win) {
 		if (sign === "X") {
@@ -60,6 +59,7 @@ export const gameOver = (allFields, sign) => {
 		if (tie === -1) {
 			localStorage.setItem("tie", ++tiePoints);
 			tieFooter.innerHTML = tiePoints;
+			console.log("gameOver");
 			displayWinner();
 		}
 	}
