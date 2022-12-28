@@ -45,7 +45,6 @@
 	font-weight: bold;
 	background-color: var(--MAIN-BGCOLOR);
 	min-height: 100vh;
-	margin: var(--MAIN-MARGIN);
 
 	display: flex;
 	justify-content: center;

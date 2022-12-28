@@ -41,6 +41,9 @@ export const displayWinner = (sign = 0) => {
 		winnerWindow.firstElementChild.lastElementChild.classList.remove(
 			"next-round-button"
 		);
+		// Remove string Quit and NextRound
+		winnerWindow.firstElementChild.firstElementChild.textContent = "";
+		winnerWindow.firstElementChild.lastElementChild.textContent = "";
 		for (let i = 0; i < 9; i++) {
 			allFields[i].classList.remove("main-signX");
 			allFields[i].classList.remove("main-signO");
