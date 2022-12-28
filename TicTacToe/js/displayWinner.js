@@ -2,7 +2,6 @@ import { allFields, board } from "./markFields.js";
 
 // Display window of winner
 export const displayWinner = (sign = 0) => {
-	console.log("displayWinner1");
 	const winnerWindow = document.querySelector("#winnerWindow");
 	winnerWindow.classList.add("winner-window");
 	const winnerString = document.createElement("p");
@@ -10,7 +9,6 @@ export const displayWinner = (sign = 0) => {
 		winnerString.textContent = "X Wins!";
 		winnerString.style.color = "rgb(26, 217, 12)";
 	} else if (sign === 0) {
-		console.log();
 		winnerString.textContent = "Tie!";
 		winnerString.style.color = "rgb(192, 192, 192)";
 	} else if (sign === "O") {
