@@ -9,24 +9,24 @@
 		<script type="module" src="js/app.js"></script>
 	</head>
 	<body class="app-background">
-		<!-- New Game -->
-		<section class="choose-sign" id="chooseSign">
-			<p>Pick Player 1's Mark</p>
+		<!-- New Game Windows -->
+		<section class="choose-sign-window">
+			<p class="pick-player-string">Pick Player 1's Sign</p>
 			<div class="choose-sign-inside">
-				<div class="choose-x" id="chooseX">
+				<div class="choose-x">
 					<p>X</p>
 				</div>
-				<div class="choose-o" id="chooseO">
+				<div class="choose-o">
 					<p>O</p>
 				</div>
 			</div>
 		</section>
-		<section class="new-game" id="newGame">
+		<section class="new-game-button">
 			<p>New Game (VS Player)</p>
 		</section>
 
 		<!-- Main Board -->
-		<main class="whole-board" id="wholeBoard">
+		<main class="whole-board">
 			<header class="header">
 				<section class="whos-turn">
 					<span class="sign">X</span>
@@ -60,11 +60,13 @@
 				</section>
 			</footer>
 		</main>
-		<article id="winnerWindow">
+
+		<!-- Winner Section -->
+		<section id="winnerWindow">
 			<div>
 				<div id="quitButton"></div>
 				<div id="nextRoundButton"></div>
 			</div>
-		</article>
+		</section>
 	</body>
 </html>

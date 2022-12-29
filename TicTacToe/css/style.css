@@ -9,96 +9,136 @@
 
 /* || VARIABLES */
 :root {
-	/* FONTS */
-	--FFAMILY: "Ubuntu", sans-serif;
-	--FSIZE: 18px;
-
-	/* SIZES */
-	--HEADER-HEIGHT: 7vh;
-	--FOOTER-HEIGHT: 10vh;
-	--WIDTH-BLOCK: 30%;
-	--HEIGHT-BLOCK: 60%;
-
 	/* COLORS */
 	--BLACK: rgb(0, 0, 0);
-	--MAIN-BGCOLOR: rgb(14, 19, 22);
-	--WINNER-BGCOLOR: rgba(75, 96, 109);
-	--LIGHT-MAIN-BGCOLOR: rgba(75, 96, 109, 0.5);
-	--GREEN: rgb(26, 217, 12);
+	--DARK-BGCOLOR: rgb(18, 22, 25);
+	--BGCOLOR: rgb(31, 39, 43);
+	--LIGHT-BGCOLOR: rgba(75, 96, 109);
+	--TRANSPARENT-LIGHT-BGCOLOR: rgba(75, 96, 109, 0.9);
 	--GRAY: rgb(192, 192, 192);
+	--GREEN: rgb(26, 217, 12);
 	--RED: rgb(192, 39, 39);
 	--WHITE: rgb(255, 255, 255);
 
-	/* MARGINS, PADDINGS AND BORDERS */
-	--MAIN-MARGIN: 2rem;
-	--BOARD-PADDING: 1.2rem;
-	--FIELD-GAP: 1.5rem;
-	--FIELD-BORDER-RAD: 1rem;
+	/* FONTS */
+	--FFAMILY: "Ubuntu", sans-serif;
+	--FSIZE: 1.1rem;
 
-	/* WINNER WINDOW */
-	--WW-WIDTH: 300px;
-	--WW-HEIGHT: 150px;
+	/* NEW GAMESIZES */
+	--NEWGAME-MIN-WW: 18rem;
+	--NEWGAME-BETWEEN-WW: 80vw;
+	--NEWGAME-MAX-WW: 36rem;
+
+	--NEWGAME-WH: calc(var(--NEWGAME-MAX-WW) / 3);
+	--NEWGAME-INSIDE-WW: 95%;
+	--NEWGAME-INSIDE-WH: 60%;
+	--NEWGAME-SIGN-WW: 45%;
+	--NEWGAME-SIGN-WH: 80%;
+
+	/* MAIN BOARD SIZES */
+	--MAIN-MIN-WW: 18rem;
+	--MAIN-BETWEEN-WW: 80vw;
+	--MAIN-MAX-WW: 30rem;
+
+	--HEADER-WH: 3rem;
+	--TURN-INFO-WW: 6rem;
+	--TURN-INFO-WH: 80%;
+	--RESET-BUTTON: 2rem;
+	--FIELD-WH: calc(
+		clamp(
+				var(--NEWGAME-MIN-WW),
+				var(--NEWGAME-BETWEEN-WW),
+				calc(var(--NEWGAME-MAX-WW) / 1.2)
+			) / 3.5
+	);
+	--FOOTER-WH: 3.5rem;
+	--RESULTS-WW: 30%;
+	--RESULTS-WH: 80%;
+
+	/* WINNER WINDOW SIZES */
+	--WINNER-WH: 15rem;
+	--BUTTONS-WH: 3rem;
+	--QUIT-BUTTON-WW: 6rem;
+	--NEXT-ROUND-BUTTON-WW: 12rem;
+
+	/* MARGINS, PADDING, GAPS AND BORDERS */
+	--GENERAL-GAP: 0.8rem;
+	--GENERAL-BORDER-RAD: 1rem;
+}
+
+/* || FLEX PROPERTIES */
+.app-background,
+.choose-sign-window,
+.choose-sign-inside,
+.choose-x,
+.choose-o,
+.new-game-button,
+.header,
+.whos-turn,
+.reset-button,
+.results,
+.player1,
+.ties,
+.player2,
+.main-signX,
+.main-signO,
+.winner-window,
+.winner-window-buttons,
+.quit-button,
+.next-round-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .app-background {
-	font: var(--FSIZE) var(--FFAMILY);
-	font-weight: bold;
-	background-color: var(--MAIN-BGCOLOR);
-	min-height: 100vh;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	background-color: var(--BLACK);
 	flex-flow: column nowrap;
-	gap: calc(var(--FIELD-GAP) * 2);
+	font: bold var(--FSIZE) var(--FFAMILY);
+	gap: calc(var(--GENERAL-BORDER-RAD) * 3);
+	min-height: 100vh;
 }
 
 /* CHOOSE YOUR FIGHTER */
-.choose-sign {
-	width: clamp(400px, 50vw, 600px);
-	height: 250px;
-	background-color: var(--LIGHT-MAIN-BGCOLOR);
-	border-radius: var(--FIELD-BORDER-RAD);
-	font-size: 1.5em;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.choose-sign-window {
+	background-color: var(--BGCOLOR);
+	border-radius: var(--GENERAL-BORDER-RAD);
 	flex-flow: column nowrap;
-	gap: calc(var(--FIELD-GAP) / 2);
+	font-size: 1.5em;
+	gap: var(--GENERAL-BORDER-RAD);
+	height: var(--NEWGAME-WH);
+	width: clamp(
+		var(--NEWGAME-MIN-WW),
+		var(--NEWGAME-BETWEEN-WW),
+		var(--NEWGAME-MAX-WW)
+	);
 }
 
-.choose-sign p {
+.pick-player-string {
 	color: var(--WHITE);
 }
 
 .choose-sign-inside {
-	width: 80%;
-	height: 50%;
 	background-color: var(--BLACK);
-	border-radius: var(--FIELD-BORDER-RAD);
-
-	display: flex;
+	border-radius: calc(var(--GENERAL-BORDER-RAD) / 2);
+	color: var(--WHITE);
+	height: var(--NEWGAME-INSIDE-WH);
 	justify-content: space-evenly;
-	align-items: center;
+	width: var(--NEWGAME-INSIDE-WW);
 }
 
 .choose-x,
 .choose-o {
-	width: 40%;
-	height: 80%;
+	width: var(--NEWGAME-SIGN-WW);
+	height: var(--NEWGAME-SIGN-WH);
 	background-color: var(--WHITE);
-	border-radius: var(--FIELD-BORDER-RAD);
+	border-radius: calc(var(--GENERAL-BORDER-RAD) / 2);
 	cursor: pointer;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .choose-x p,
 .choose-o p {
-	font-size: calc(var(--FSIZE) * 5);
+	font-size: 3.4em;
 	color: var(--BLACK);
 }
 
@@ -109,179 +149,178 @@
 	color: var(--WHITE);
 }
 
-.new-game {
-	width: clamp(400px, 50vw, 600px);
-	height: var(--FOOTER-HEIGHT);
-	font-size: calc(var(--FSIZE) * 1.5);
+.new-game-button {
 	background-color: var(--RED);
-	border-radius: var(--FIELD-BORDER-RAD);
+	border-radius: calc(var(--GENERAL-BORDER-RAD) / 2);
 	color: var(--WHITE);
 	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	font-size: 1.5em;
+	height: calc(var(--NEWGAME-WH) / 3);
+	width: clamp(
+		var(--NEWGAME-MIN-WW),
+		var(--NEWGAME-BETWEEN-WW),
+		var(--NEWGAME-MAX-WW)
+	);
 }
 
-/* MAIN GAME */
+/* || MAIN BOARD */
 .whole-board {
-	width: 500px;
-	padding: 0 var(--BOARD-PADDING);
 	display: none;
+	width: clamp(var(--MAIN-MIN-WW), var(--MAIN-BETWEEN-WW), var(--MAIN-MAX-WW));
 }
 
 .header {
 	width: 100%;
-	height: var(--HEADER-HEIGHT);
-	display: flex;
+	height: var(--HEADER-WH);
 	justify-content: space-between;
 }
 
 .whos-turn {
-	width: calc(var(--WIDTH-BLOCK) / 1.25);
-	height: var(--HEIGHT-BLOCK);
-	color: var(--GRAY);
-	background-color: var(--LIGHT-MAIN-BGCOLOR);
-	border-radius: var(--FIELD-BORDER-RAD);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: calc(var(--FIELD-GAP) / 2);
+	background-color: var(--BGCOLOR);
+	border-radius: calc(var(--GENERAL-BORDER-RAD) / 2);
+	color: var(--WHITE);
+	gap: calc(var(--GENERAL-GAP) / 2);
+	height: var(--TURN-INFO-WH);
+	width: var(--TURN-INFO-WW);
 }
 
 .sign {
-	font-size: 1.6em;
+	font-size: 1.5em;
 }
 
 .reset-button {
-	width: calc(var(--WIDTH-BLOCK) / 3);
-	height: var(--HEIGHT-BLOCK);
 	background-color: var(--GRAY);
-	border-radius: var(--FIELD-BORDER-RAD);
-	font-size: 1.5em;
+	border-radius: var(--GENERAL-BORDER-RAD);
 	cursor: pointer;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	font-size: 1.5em;
+	height: var(--RESET-BUTTON);
+	width: var(--RESET-BUTTON);
 }
 
 .board {
 	width: 100%;
-	height: 400px;
+	margin: var(--GENERAL-GAP) 0;
 
 	display: grid;
+	gap: var(--GENERAL-GAP);
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	gap: var(--FIELD-GAP);
+	grid-template-rows: var(--FIELD-WH) var(--FIELD-WH) var(--FIELD-WH);
 }
 
 .board div {
-	background-color: var(--LIGHT-MAIN-BGCOLOR);
-	border-radius: var(--FIELD-BORDER-RAD);
+	background-color: var(--DARK-BGCOLOR);
+	border-radius: var(--GENERAL-BORDER-RAD);
 	cursor: pointer;
-	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .results {
-	width: 100%;
-	height: var(--FOOTER-HEIGHT);
-	display: flex;
+	height: var(--FOOTER-WH);
 	justify-content: space-between;
-	align-items: center;
+	width: 100%;
 }
 
-.player1 {
-	width: var(--WIDTH-BLOCK);
-	height: var(--HEIGHT-BLOCK);
+.player1,
+.ties,
+.player2 {
 	background-color: var(--GREEN);
-	border-radius: var(--FIELD-BORDER-RAD);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	border-radius: calc(var(--GENERAL-BORDER-RAD) / 2);
 	flex-flow: column nowrap;
+	height: var(--RESULTS-WH);
+	width: var(--RESULTS-WW);
 }
 
 .ties {
-	width: var(--WIDTH-BLOCK);
-	height: var(--HEIGHT-BLOCK);
 	background-color: var(--GRAY);
-	border-radius: var(--FIELD-BORDER-RAD);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-flow: column nowrap;
 }
 
 .player2 {
-	width: var(--WIDTH-BLOCK);
-	height: var(--HEIGHT-BLOCK);
 	background-color: var(--RED);
-	border-radius: var(--FIELD-BORDER-RAD);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-flow: column nowrap;
 }
 
-/* ADDED CLASSES */
+/* || MAIN BOARD */
 .main-signX {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 5em;
+	font-size: 7em;
 	color: var(--GREEN);
 }
 
 .main-signO {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 5em;
+	font-size: 7em;
 	color: var(--RED);
 }
 
-.winner-window {
-	width: 100vw;
-	height: 200px;
-	background-color: var(--WINNER-BGCOLOR);
-	color: var(--GRAY);
-	font-size: 1.5em;
-
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	gap: var(--FIELD-GAP);
+#winner-main-signX {
+	background-color: var(--GREEN);
+	color: var(--DARK-BGCOLOR);
 }
 
-.winner-window div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+#winner-main-signO {
+	background-color: var(--RED);
+	color: var(--DARK-BGCOLOR);
+}
+
+/* || WINNER WINDOW */
+
+.winner-window {
+	background-color: var(--TRANSPARENT-LIGHT-BGCOLOR);
+	color: var(--GRAY);
+	flex-direction: column;
+	font-size: 1.5em;
+	gap: var(--GENERAL-GAP);
+	height: var(--WINNER-WH);
+	position: absolute;
+	width: 100vw;
+}
+
+.winner-window-buttons {
 	flex-direction: row;
-	gap: var(--FIELD-GAP);
+	gap: var(--GENERAL-GAP);
 }
 
 .quit-button,
 .next-round-button {
-	width: calc(var(--WW-WIDTH) / 3);
-	height: calc(var(--WW-HEIGHT) / 3);
 	background-color: var(--GRAY);
-	border-radius: calc(var(--FIELD-BORDER-RAD) / 2);
+	border-radius: calc(var(--GENERAL-BORDER-RAD) / 2);
 	color: var(--BLACK);
 	cursor: pointer;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	height: var(--BUTTONS-WH);
+	width: var(--QUIT-BUTTON-WW);
 }
 
 .next-round-button {
-	width: calc(var(--WW-WIDTH) / 1.5);
+	width: var(--NEXT-ROUND-BUTTON-WW);
 	background-color: var(--RED);
+}
+
+/* || MEDIA */
+@media screen and (max-width: 560px) {
+	.main-signX,
+	.main-signO {
+		font-size: 6em;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.player1,
+	.ties,
+	.player2 {
+		font-size: 0.85em;
+	}
+
+	.main-signX,
+	.main-signO {
+		font-size: 5em;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.player1,
+	.ties,
+	.player2 {
+		font-size: 0.75em;
+	}
+
+	.main-signX,
+	.main-signO {
+		font-size: 4em;
+	}
 }

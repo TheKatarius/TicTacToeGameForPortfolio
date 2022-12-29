@@ -1,7 +1,6 @@
-import { startNewGame, chosenSign } from "./newGame.js";
-import { markFields } from "./markFields.js";
-import { gameOver } from "./gameOver.js";
-import { resetBoard } from "./resetBoard.js";
+import { startNewGame } from "./startGame/newGame.js";
+import { chosenSign } from "./startGame/setInitialSign.js";
+import { markFields } from "./boardMechanics/markFields.js";
 
 document.addEventListener("readystatechange", (event) => {
 	if (event.target.readyState === "complete") {
@@ -10,10 +9,7 @@ document.addEventListener("readystatechange", (event) => {
 });
 
 function startGame() {
-	// Start newGame, choose sign and set starting localStorage's points
-	startNewGame().then(() => {
-		const sign = chosenSign;
-		markFields(gameOver, sign);
-		resetBoard();
+	startNewGame.then(() => {
+		markFields(chosenSign);
 	});
 }
