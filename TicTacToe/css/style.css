@@ -238,24 +238,26 @@
 }
 
 /* || MAIN BOARD */
-.main-signX {
+.main-signX,
+.main-signO {
 	font-size: 7em;
 	color: var(--GREEN);
+	user-select: none;
 }
 
 .main-signO {
-	font-size: 7em;
 	color: var(--RED);
 }
 
-#winner-main-signX {
+#winner-main-signX,
+#winner-main-signO {
 	background-color: var(--GREEN);
 	color: var(--DARK-BGCOLOR);
+	user-select: none;
 }
 
 #winner-main-signO {
 	background-color: var(--RED);
-	color: var(--DARK-BGCOLOR);
 }
 
 /* || WINNER WINDOW */
