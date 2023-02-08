@@ -9,8 +9,7 @@ function App() {
 	useEffect(() => {
 		setData(fetchedData);
 	}, [fetchedData]);
-	console.log(data[0].capital);
-
+	if (!isLoading) console.log(data[0]);
 	data.forEach((country, index) => {
 		if (index === 0) console.log(country);
 	});
@@ -22,7 +21,7 @@ function App() {
 					{fetchError}
 				</p>
 			)}
-			{!isLoading && !fetchError && <p></p>}
+			{!isLoading && !fetchError && data[0] && <p>{data[0].name.official}</p>}
 		</div>
 	);
 }
