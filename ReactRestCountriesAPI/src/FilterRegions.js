@@ -1,8 +1,9 @@
-const FilterRegions = ({ setFilteredRegion }) => {
+const FilterRegions = ({ filteredRegion, setFilteredRegion }) => {
 	return (
 		<select
 			name="region"
 			className="FilterRegions"
+			value={filteredRegion}
 			onChange={(e) => setFilteredRegion(e.target.value)}
 		>
 			<option value="">Filter by region</option>

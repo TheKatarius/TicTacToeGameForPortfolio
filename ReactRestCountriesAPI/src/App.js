@@ -1,3 +1,7 @@
+// optimize css and reactjs
+// read frontendmentor policy
+// deploy this app on gh pages
+
 import { useState, useEffect } from "react";
 import useFetchHome from "./hooks/useFetchHome";
 import { Route, Routes } from "react-router-dom";
@@ -13,7 +17,12 @@ function App() {
 	const { fetchedData, fetchError, isLoading } = useFetchHome(API_URL_ALL);
 
 	useEffect(() => {
-		setData(fetchedData);
+		let id = -1;
+		const changedFetchData = fetchedData.map((country) => {
+			id++;
+			return { ...country, id };
+		});
+		setData(changedFetchData);
 	}, [fetchedData]);
 
 	const handleFilterData = () => {
@@ -38,6 +47,7 @@ function App() {
 						<Home
 							searchedCountry={searchedCountry}
 							setSearchedCountry={setSearchedCountry}
+							filteredRegion={filteredRegion}
 							setFilteredRegion={setFilteredRegion}
 							data={handleFilterData()}
 							fetchError={fetchError}

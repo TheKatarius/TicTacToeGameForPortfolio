@@ -4,8 +4,7 @@ import DisplayInfoDetail from "./DisplayInfoDetail";
 
 const DisplayCountryDetail = ({ data }) => {
 	const { id } = useParams();
-	const numberId = Number(id);
-	const isCountry = data.find((country, index) => index === numberId); // if country exists
+	const isCountry = data.find((country) => country.id.toString() === id); // if country exists
 
 	const navigate = useNavigate();
 	const handleClick = (e) => {
@@ -14,7 +13,7 @@ const DisplayCountryDetail = ({ data }) => {
 	};
 
 	return (
-		<main className="CountryInfoDetail">
+		<>
 			{!isCountry && (
 				<main className="CountryNotFound">
 					<p>Country Not Found</p>
@@ -32,7 +31,7 @@ const DisplayCountryDetail = ({ data }) => {
 					<DisplayInfoDetail data={data} id={id} />
 				</main>
 			)}
-		</main>
+		</>
 	);
 };
 

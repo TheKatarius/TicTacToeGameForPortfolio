@@ -47,7 +47,7 @@ body {
 
 .SearchCountryForm {
 	margin: 0 0 40px 50px;
-	width: max(300px, 30%);
+	width: max(300px, 36%);
 	height: 50px;
 	background-color: var(--DARK-BLUE-DM);
 	display: flex;
@@ -90,6 +90,7 @@ body {
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 50px;
 	margin: 0 50px 0 50px;
+	cursor: pointer;
 }
 
 .CountryInfo {
@@ -178,6 +179,7 @@ body {
 	gap: 20px;
 	align-items: center;
 	margin-top: 20px;
+	font-size: 20px;
 }
 
 .BorderCountriesString {
@@ -187,6 +189,8 @@ body {
 .BorderCountries ul {
 	display: flex;
 	gap: 5px;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .BorderCountries li {
@@ -203,13 +207,43 @@ body {
 }
 
 @media screen and (width < 780px) {
+	.AllInfoDetail {
+		margin: 0 40px;
+	}
+
+	.MainInfoDetail {
+		flex-direction: column;
+	}
+
+	.MainInfoDetail img {
+		width: 100%;
+	}
+
 	.Countries {
 		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.SearchCountryForm {
+		width: 40%;
 	}
 }
 
 @media screen and (width < 530px) {
 	.Countries {
 		grid-template-columns: repeat(1, 1fr);
+	}
+	.SearchCountryForm {
+		width: 50%;
+	}
+	.AllInfoDetail {
+		margin: 0 20px;
+	}
+
+	.MainInfoDetail > article > ul {
+		flex-direction: column;
+	}
+
+	.BorderCountries {
+		flex-direction: column;
 	}
 }

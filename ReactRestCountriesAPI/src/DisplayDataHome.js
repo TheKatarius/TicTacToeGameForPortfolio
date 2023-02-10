@@ -5,11 +5,11 @@ function DisplayDataHome({ data }) {
 
 	return (
 		<main className="Countries">
-			{data.map((country, id) => (
+			{data.map((country) => (
 				<section
-					key={id}
+					key={country.id}
 					className="CountryInfo"
-					onClick={() => navigate(`/country/${id}`)}
+					onClick={() => navigate(`/country/${country.id}`)}
 				>
 					<img
 						src={country.flags.png}

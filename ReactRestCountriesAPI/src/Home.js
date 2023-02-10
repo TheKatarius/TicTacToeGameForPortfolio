@@ -5,6 +5,7 @@ import DisplayDataHome from "./DisplayDataHome";
 const Home = ({
 	searchedCountry,
 	setSearchedCountry,
+	filteredRegion,
 	setFilteredRegion,
 	data,
 	fetchError,
@@ -17,7 +18,10 @@ const Home = ({
 					searchedCountry={searchedCountry}
 					setSearchedCountry={setSearchedCountry}
 				/>
-				<FilterRegions setFilteredRegion={setFilteredRegion} />
+				<FilterRegions
+					filteredRegion={filteredRegion}
+					setFilteredRegion={setFilteredRegion}
+				/>
 			</section>
 			<DisplayDataHome
 				data={data}
