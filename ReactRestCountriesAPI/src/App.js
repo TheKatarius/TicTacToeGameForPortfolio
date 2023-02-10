@@ -1,7 +1,3 @@
-// optimize css and reactjs
-// read frontendmentor policy
-// deploy this app on gh pages
-
 import { useState, useEffect } from "react";
 import useFetchHome from "./hooks/useFetchHome";
 import { Route, Routes } from "react-router-dom";
